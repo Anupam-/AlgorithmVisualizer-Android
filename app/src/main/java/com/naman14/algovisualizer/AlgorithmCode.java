@@ -65,6 +65,8 @@ public class AlgorithmCode {
             " addLog(\"Array has been sorted\");\n" +
             " completed();";
 
+    public static final String CODE_MERGE_SORT = "";
+
     public static final String CODE_BST_SEARCH = " int id = DataUtils.getRandomKeyFromBST();\n" +
             " addLog(\"Searching for \" + String.valueOf(id));\n" +
             " BinarySearchTree.Node current = b.getRoot();\n" +

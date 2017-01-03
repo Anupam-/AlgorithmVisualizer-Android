@@ -2,4 +2,6 @@
     <string name="app_name">AlgorithmVisualizer</string>
     <string name="action_settings">Settings</string>
     <string name="report_bugs">Report any bugs <u> here </u></string>
+    <string name="fabric_api_key">key</string>
+    <string name="play_billing_license_key">key</string>
 </resources>

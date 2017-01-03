@@ -94,6 +94,14 @@
       "<a href='https://github.com/naman14/AlgorithmVisualizer-Android/blob/master/app/src/main/java/com/naman14/algovisualizer/visualizer/SortingVisualizer.java'>SortingVisualizer</a>"
     ]
   },
+  "merge_sort": {
+    "Merge Sort": "",
+    "Complexity": {
+      "Time": "worst O(n*log(n)), best O(n*log(n)), average O(n*log(n))",
+      "Space": "worst O(n) auxiliary"
+    },
+    "References": []
+  },
   "linked_list": {
     "Singly linked list": "A Linked List is a linear collection of data elements, called nodes, each pointing to the next node by means of a pointer. It is a data structure consisting of a group of nodes which together represent a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) to the next node in the sequence. ",
     "Complexity": {
