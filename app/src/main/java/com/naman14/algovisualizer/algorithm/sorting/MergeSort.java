@@ -36,8 +36,14 @@ public class MergeSort extends SortAlgorithm implements DataHandler {
             return;
         }
         int middle = (start + end)/2;
+        highlightInterval(start,middle);
+        sleep();
         mergeSort(start,middle);
+        highlightInterval(middle+1,end);
+        sleep();
         mergeSort(middle+1,end);
+        highlightInterval(start,end);
+        sleep();
         merge(start,middle,middle+1,end);
     }
 
@@ -51,32 +57,28 @@ public class MergeSort extends SortAlgorithm implements DataHandler {
             if (start2 > end2){
                 sortedList.add(array[start1]);
                 indexes.add(start1);
-                highlightTrace(start1);
                 start1+=1;
-                sleep();
                 continue;
             }
             if (array[start1] <= array[start2]){
                 sortedList.add(array[start1]);
                 indexes.add(start1);
-                highlightTrace(start1);
                 start1+=1;
             }
             else{
                 sortedList.add(array[start2]);
                 indexes.add(start2);
-                highlightTrace(start2);
                 start2+=1;
             }
-            //sleep();
         }
         int i = 0;
         for (int number:sortedList) {
             array[s0+i]=number;
-            highlightTrace(indexes.get(i));
+            //highlightTrace(indexes.get(i));
             i+=1;
-            sleep();
+
         }
+        sleep();
     }
 
     @Override

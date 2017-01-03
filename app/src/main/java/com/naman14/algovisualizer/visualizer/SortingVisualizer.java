@@ -32,6 +32,8 @@ public class SortingVisualizer extends AlgorithmVisualizer {
     int highlightPositionOne = -1, highlightPositionTwo = -1;
     int highlightPosition = -1;
     int lineStrokeWidth = getDimensionInPixel(10);
+    int startInterval, endInterval = -1;
+
 
     public SortingVisualizer(Context context) {
         super(context);
@@ -72,14 +74,23 @@ public class SortingVisualizer extends AlgorithmVisualizer {
             for (int i = 0; i < array.length; i++) {
 
                 if (i == highlightPositionOne || i == highlightPositionTwo) {
-                    canvas.drawLine(xPos, getHeight() - (float) ((array[i] / 10.0) * getHeight()), xPos, getHeight(), highlightPaintSwap);
+                    canvas.drawLine(xPos, getHeight() - (float) ((array[i] / 10.0) * getHeight()),
+                            xPos, getHeight(), highlightPaintSwap);
                 } else if (i == highlightPosition)
-                    canvas.drawLine(xPos, getHeight() - (float) ((array[i] / 10.0) * getHeight()), xPos, getHeight(), highlightPaintTrace);
+                    canvas.drawLine(xPos, getHeight() - (float) ((array[i] / 10.0) * getHeight()),
+                            xPos, getHeight(), highlightPaintTrace);
+                else if (startInterval >= 0 && endInterval >= startInterval &&
+                        i >= startInterval && i <= endInterval) {
+                    canvas.drawLine(xPos, getHeight() - (float) ((array[i] / 10.0) * getHeight()),
+                            xPos, getHeight(), highlightPaintTrace);
+                }
                 else {
-                    canvas.drawLine(xPos, getHeight() - (float) ((array[i] / 10.0) * getHeight()), xPos, getHeight(), paint);
+                    canvas.drawLine(xPos, getHeight() - (float) ((array[i] / 10.0) * getHeight()),
+                            xPos, getHeight(), paint);
                 }
 
-                canvas.drawText(String.valueOf(array[i]), xPos - lineStrokeWidth / 3, getHeight() - (float) ((array[i] / 10.0) * getHeight()) - 30, textPaint);
+                canvas.drawText(String.valueOf(array[i]), xPos - lineStrokeWidth / 3,
+                        getHeight() - (float) ((array[i] / 10.0) * getHeight()) - 30, textPaint);
 
                 xPos += margin + 30;
             }
@@ -111,11 +122,23 @@ public class SortingVisualizer extends AlgorithmVisualizer {
         invalidate();
     }
 
+    public void highlightInterval(int start, int end){
+        this.startInterval = start;
+        this.endInterval = end;
+        invalidate();
+    }
+
+    public void resetHighlightInterval(){
+        highlightInterval(-1,-1);
+    }
+
     @Override
     public void onCompleted() {
         this.highlightPosition = -1;
         this.highlightPositionTwo = -1;
         this.highlightPositionOne = -1;
+        this.startInterval = -1;
+        this.endInterval = -1;
         invalidate();
     }
 }

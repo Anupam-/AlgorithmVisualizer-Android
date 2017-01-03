@@ -52,6 +52,24 @@ public class SortAlgorithm extends Algorithm implements DataHandler {
         });
     }
 
+    public void highlightInterval(final int start, final int end){
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                visualizer.highlightInterval(start,end);
+            }
+        });
+    }
+
+    public void resetInterval(){
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                visualizer.highlightInterval(-1,-1);
+            }
+        });
+    }
+
     @Override
     public void onDataRecieved(Object data) {
 
