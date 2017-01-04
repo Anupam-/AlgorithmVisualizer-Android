@@ -31,7 +31,7 @@ public class MergeSort extends SortAlgorithm implements DataHandler {
     }
 
     public void mergeSort(int start, int end){
-        addLog("Sorting array between " + start + "and " + end);
+        addLog("Sorting array between " + start + " and " + end);
         if (start >= end){
             return;
         }
@@ -51,32 +51,26 @@ public class MergeSort extends SortAlgorithm implements DataHandler {
         addLog("merging sub-array " + start1 + " to " + end1 + " and subarray " + start2 + " to " +
         end2);
         List<Integer> sortedList = new ArrayList<Integer>();
-        List<Integer> indexes = new ArrayList<Integer>();
         int s0 = start1;
         while(start1 <= end1){
             if (start2 > end2){
                 sortedList.add(array[start1]);
-                indexes.add(start1);
                 start1+=1;
                 continue;
             }
             if (array[start1] <= array[start2]){
                 sortedList.add(array[start1]);
-                indexes.add(start1);
                 start1+=1;
             }
             else{
                 sortedList.add(array[start2]);
-                indexes.add(start2);
                 start2+=1;
             }
         }
         int i = 0;
         for (int number:sortedList) {
             array[s0+i]=number;
-            //highlightTrace(indexes.get(i));
             i+=1;
-
         }
         sleep();
     }
