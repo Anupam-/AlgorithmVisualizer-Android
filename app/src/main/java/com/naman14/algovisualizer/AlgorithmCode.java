@@ -65,7 +65,41 @@ public class AlgorithmCode {
             " addLog(\"Array has been sorted\");\n" +
             " completed();";
 
-    public static final String CODE_MERGE_SORT = "";
+    public static final String CODE_MERGE_SORT = "" +
+            "public void mergeSort(int start, int end){\n" +
+            "   if (start >= end){\n" +
+            "       return;\n" +
+            "   }\n" +
+            "   int middle = (start + end)/2;\n" +
+            "   mergeSort(start,middle);\n" +
+            "   mergeSort(middle+1,end);\n" +
+            "   merge(start,middle,middle+1,end);\n" +
+            "}\n" +
+            "public void merge(int start1, int end1, int start2, int end2){\n" +
+            "   List<Integer> sortedList = new ArrayList<Integer>();\n" +
+            "   List<Integer> indexes = new ArrayList<Integer>();\n" +
+            "   int s0 = start1;\n" +
+            "   while(start1 <= end1){\n" +
+            "       if (start2 > end2){\n" +
+            "           sortedList.add(array[start1]);\n" +
+            "               start1+=1;\n" +
+            "               continue;\n" +
+            "       }\n" +
+            "       if (array[start1] <= array[start2]){\n" +
+            "           sortedList.add(array[start1]);\n" +
+            "           start1+=1;\n" +
+            "       }\n" +
+            "       else{\n" +
+            "           sortedList.add(array[start2]);\n" +
+            "           start2+=1;\n" +
+            "       }\n" +
+            "   }\n" +
+            "   int i = 0;\n" +
+            "   for (int number:sortedList) {\n" +
+            "       array[s0+i]=number;\n" +
+            "       i+=1;\n" +
+            "   }\n" +
+            "}";
 
     public static final String CODE_BST_SEARCH = " int id = DataUtils.getRandomKeyFromBST();\n" +
             " addLog(\"Searching for \" + String.valueOf(id));\n" +
