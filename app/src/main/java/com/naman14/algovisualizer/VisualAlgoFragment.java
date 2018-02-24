@@ -43,6 +43,7 @@ import com.naman14.algovisualizer.algorithm.search.LinearSearch;
 import com.naman14.algovisualizer.algorithm.sorting.BubbleSort;
 import com.naman14.algovisualizer.algorithm.sorting.InsertionSort;
 import com.naman14.algovisualizer.algorithm.sorting.QuickSort;
+import com.naman14.algovisualizer.algorithm.sorting.MergeSort;
 import com.naman14.algovisualizer.algorithm.sorting.SelectionSort;
 import com.naman14.algovisualizer.algorithm.tree.bst.BSTAlgorithm;
 import com.naman14.algovisualizer.visualizer.AlgorithmVisualizer;
@@ -198,6 +199,12 @@ public class VisualAlgoFragment extends Fragment {
                 appBarLayout.addView(visualizer);
                 algorithm = new QuickSort((SortingVisualizer) visualizer, getActivity(), logFragment);
                 ((QuickSort) algorithm).setData(DataUtils.createRandomArray(15));
+                break;
+	     case Algorithm.MERGE_SORT:
+                visualizer = new SortingVisualizer(getActivity());
+                appBarLayout.addView(visualizer);
+                algorithm = new MergeSort((SortingVisualizer)visualizer, getActivity(), logFragment);
+                ((MergeSort)algorithm).setData(DataUtils.createRandomArray(15));
                 break;
             case Algorithm.BST_SEARCH:
                 visualizer = new BSTVisualizer(getActivity());
