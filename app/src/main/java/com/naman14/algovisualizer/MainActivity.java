@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                                 algoFragment.setupFragment(Algorithm.SELECTION_SORT);
                                 break;
                             case 3:
-                                algoFragment.setupFragment(Algorithm.QUICKSORT);
+                                algoFragment.setupFragment(Algorithm.MERGE_SORT);
                                 break;
                         }
                         break;
@@ -142,13 +142,6 @@ public class MainActivity extends AppCompatActivity {
                     case 5:
                         switch (childPosition) {
                             case 0:
-                                algoFragment.setupFragment(Algorithm.N_QUEENS);
-                                break;
-                        }
-                        break;
-                    case 6:
-                        switch (childPosition) {
-                            case 0:
                                 mDrawerLayout.closeDrawers();
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
@@ -165,9 +158,6 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 break;
                             case 2:
-                                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-                                break;
-                            case 3:
                                 startActivity(new Intent(MainActivity.this, DonateActivity.class));
                                 break;
                         }
@@ -210,10 +200,6 @@ public class MainActivity extends AppCompatActivity {
         item5.setName("Graph");
         listDataHeader.add(item5);
 
-        ExpandedMenuModel item6 = new ExpandedMenuModel();
-        item6.setName("Backtracking");
-        listDataHeader.add(item6);
-
         ExpandedMenuModel item10 = new ExpandedMenuModel();
         item10.setName("About");
         listDataHeader.add(item10);
@@ -226,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
         heading2.add("Bubble Sort");
         heading2.add("Insertion Sort");
         heading2.add("Selection Sort");
-        heading2.add("Quicksort");
+        heading2.add("Merge Sort");
         List<String> heading3 = new ArrayList<String>();
         heading3.add("BST Search");
         heading3.add("BST Insert");
@@ -241,13 +227,9 @@ public class MainActivity extends AppCompatActivity {
         heading5.add("Dijkstra");
         heading5.add("Bellman Ford");
 
-        List<String> heading6 = new ArrayList<String>();
-        heading6.add("N Queens Problem");
-
         List<String> heading10 = new ArrayList<String>();
         heading10.add("About");
         heading10.add("Fork on Github");
-        heading10.add("Settings");
 
         try {
             if (BillingProcessor.isIabServiceAvailable(this)) {
@@ -262,8 +244,7 @@ public class MainActivity extends AppCompatActivity {
         listDataChild.put(listDataHeader.get(2), heading3);
         listDataChild.put(listDataHeader.get(3), heading4);
         listDataChild.put(listDataHeader.get(4), heading5);
-        listDataChild.put(listDataHeader.get(5), heading6);
-        listDataChild.put(listDataHeader.get(6), heading10);
+        listDataChild.put(listDataHeader.get(5), heading10);
 
 
 

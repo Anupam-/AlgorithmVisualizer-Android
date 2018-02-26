@@ -28,7 +28,7 @@
         <!--use your own api key for fabric-->
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="@string/fabric_api_key" />
+            android:value="a5959afb1cf6442ccc74f7491b05369a7eaa6613" />
     </application>
 
 </manifest>

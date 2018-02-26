@@ -67,8 +67,8 @@ public class CodeFragment extends Fragment {
                 case Algorithm.SELECTION_SORT:
                     addCodeItem(AlgorithmCode.CODE_SELECTION_SORT,"Selection sort");
                     break;
-                case Algorithm.QUICKSORT:
-                    addCodeItem(AlgorithmCode.CODE_QUICKSORT, "Quicksort");
+                case Algorithm.MERGE_SORT:
+                    addCodeItem(AlgorithmCode.CODE_MERGE_SORT, "Merge sort");
                     break;
                 case Algorithm.BST_SEARCH:
                     addCodeItem(AlgorithmCode.CODE_BST_SEARCH, "BST Search");
@@ -119,44 +119,18 @@ public class CodeFragment extends Fragment {
         codeView.setTheme(CodeViewTheme.GITHUB);
         codeView.setHorizontalScrollBarEnabled(true);
 
-        codeView.setOnTouchListener(new HorizontalMoveListener());
+        //Temp solution, block parent touch evenets
+        codeView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
 
         codeView.showCode(code);
 
         codeLayout.addView(codeitem);
 
-    }
-
-    /**
-     * handle horizontal move
-     */
-    class HorizontalMoveListener implements View.OnTouchListener {
-
-        float downX = 0;
-        float downY = 0;
-
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int action = event.getAction();
-            switch (action){
-                case MotionEvent.ACTION_DOWN:
-                    downX = event.getX();
-                    downY = event.getY();
-                    break;
-                case MotionEvent.ACTION_MOVE:
-                    float dx = Math.abs(event.getX() - downX);
-                    float dy = Math.abs(event.getY() - downY);
-
-                    if(dx > dy){
-                        v.getParent().requestDisallowInterceptTouchEvent(true);
-                    }
-
-                    downX = event.getX();
-                    downY = event.getY();
-
-                    break;
-            }
-            return false;
-        }
     }
 }

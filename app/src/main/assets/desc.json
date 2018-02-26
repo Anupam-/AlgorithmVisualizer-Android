@@ -94,14 +94,14 @@
       "<a href='https://github.com/naman14/AlgorithmVisualizer-Android/blob/master/app/src/main/java/com/naman14/algovisualizer/visualizer/SortingVisualizer.java'>SortingVisualizer</a>"
     ]
   },
-  "quicksort": {
-    "Quicksort": "Quicksort (sometimes called partition-exchange sort) is an efficient sorting algorithm, serving as a systematic method for placing the elements of an array in order.",
+  "merge_sort": {
+    "Merge Sort": "Merge Sort is a Divide and Conquer algorithm. It divides input array in two halves, calls itself for the two halves and then merges the two sorted halves",
     "Complexity": {
-      "Time": "worst O(n^2), best O(nlogn), average O(nlogn)",
-      "Space": "worst O(logn)"
+      "Time": "worst O(n log(n)), best O(n log(n)), average O(n log(n))",
+      "Space": "worst O(n) auxiliary"
     },
     "References": [
-      "<a href='https://en.wikipedia.org/wiki/Quicksort'>Quicksort</a><br>"
+      "<a href='https://en.wikipedia.org/wiki/Merge_sort'>Wikipedia<a/><br>"
     ]
   },
   "linked_list": {

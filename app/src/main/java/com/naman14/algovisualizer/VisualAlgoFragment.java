@@ -15,7 +15,6 @@
 package com.naman14.algovisualizer;
 
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -42,7 +41,7 @@ import com.naman14.algovisualizer.algorithm.search.BinarySearch;
 import com.naman14.algovisualizer.algorithm.search.LinearSearch;
 import com.naman14.algovisualizer.algorithm.sorting.BubbleSort;
 import com.naman14.algovisualizer.algorithm.sorting.InsertionSort;
-import com.naman14.algovisualizer.algorithm.sorting.QuickSort;
+import com.naman14.algovisualizer.algorithm.sorting.MergeSort;
 import com.naman14.algovisualizer.algorithm.sorting.SelectionSort;
 import com.naman14.algovisualizer.algorithm.tree.bst.BSTAlgorithm;
 import com.naman14.algovisualizer.visualizer.AlgorithmVisualizer;
@@ -127,7 +126,6 @@ public class VisualAlgoFragment extends Fragment {
         algoFragment = AlgoDescriptionFragment.newInstance(getArguments().getString(Algorithm.KEY_ALGORITHM));
 
         setupFragment(getArguments().getString(Algorithm.KEY_ALGORITHM));
-
         return rootView;
     }
 
@@ -193,11 +191,11 @@ public class VisualAlgoFragment extends Fragment {
                 algorithm = new SelectionSort((SortingVisualizer) visualizer, getActivity(), logFragment);
                 ((SelectionSort) algorithm).setData(DataUtils.createRandomArray(15));
                 break;
-            case Algorithm.QUICKSORT:
+            case Algorithm.MERGE_SORT:
                 visualizer = new SortingVisualizer(getActivity());
                 appBarLayout.addView(visualizer);
-                algorithm = new QuickSort((SortingVisualizer) visualizer, getActivity(), logFragment);
-                ((QuickSort) algorithm).setData(DataUtils.createRandomArray(15));
+                algorithm = new MergeSort((SortingVisualizer)visualizer, getActivity(), logFragment);
+                ((MergeSort)algorithm).setData(DataUtils.createRandomArray(15));
                 break;
             case Algorithm.BST_SEARCH:
                 visualizer = new BSTVisualizer(getActivity());
@@ -252,15 +250,10 @@ public class VisualAlgoFragment extends Fragment {
                 algorithm = new BellmanFordAlgorithm((WeightedGraphVisualizer) visualizer, getActivity(), logFragment);
                 ((BellmanFordAlgorithm) algorithm).setData(DataUtils.createWeightedGraph(5));
                 break;
-            case Algorithm.N_QUEENS:
-                visualizer = null;
-                break;
             default:
                 visualizer = null;
         }
 
-        Algorithm.setInterval(Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(getActivity())
-                .getString(SettingsFragment.KEY_INTERVAL, "500")));
         algorithm.setStarted(false);
         fab.setImageResource(R.drawable.ic_play_arrow_white_24dp);
         logFragment.clearLog();
