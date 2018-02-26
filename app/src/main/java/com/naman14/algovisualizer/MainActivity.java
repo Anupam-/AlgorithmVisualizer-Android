@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                             case 3:
                                 algoFragment.setupFragment(Algorithm.QUICKSORT);
                                 break;
-			    case 4:
+			                case 4:
                                 algoFragment.setupFragment(Algorithm.MERGE_SORT);
                                 break;
                         }

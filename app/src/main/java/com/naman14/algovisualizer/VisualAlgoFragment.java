@@ -200,7 +200,7 @@ public class VisualAlgoFragment extends Fragment {
                 algorithm = new QuickSort((SortingVisualizer) visualizer, getActivity(), logFragment);
                 ((QuickSort) algorithm).setData(DataUtils.createRandomArray(15));
                 break;
-	     case Algorithm.MERGE_SORT:
+	        case Algorithm.MERGE_SORT:
                 visualizer = new SortingVisualizer(getActivity());
                 appBarLayout.addView(visualizer);
                 algorithm = new MergeSort((SortingVisualizer)visualizer, getActivity(), logFragment);

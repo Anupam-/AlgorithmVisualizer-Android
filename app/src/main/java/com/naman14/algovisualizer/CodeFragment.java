@@ -70,7 +70,7 @@ public class CodeFragment extends Fragment {
                 case Algorithm.QUICKSORT:
                     addCodeItem(AlgorithmCode.CODE_QUICKSORT, "Quicksort");
                     break;
-		case Algorithm.MERGE_SORT:
+		        case Algorithm.MERGE_SORT:
                     addCodeItem(AlgorithmCode.CODE_MERGE_SORT, "Merge sort");
                     break;
                 case Algorithm.BST_SEARCH:
